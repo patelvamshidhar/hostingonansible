@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Installating the nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: latest
+    - name: Copying the files
+        ansible.builtin.copy:
+          src: index.html,style.css,scripts.js
+          dest: /etc/nginx
+          owner: root
+          group: root
+          mode: '0777'
+      
+      
