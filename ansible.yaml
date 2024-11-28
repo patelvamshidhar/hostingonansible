@@ -5,13 +5,11 @@
     - name: Installating the nginx
       ansible.builtin.apt:
         name: nginx
-        state: latest
+        state: present
     - name: Copying the files
-        ansible.builtin.copy:
-          src: index.html,style.css,scripts.js
-          dest: /etc/nginx
-          owner: root
-          group: root
-          mode: '0777'
-      
-      
+      ansible.builtin.copy:
+        src:  /home/patel/hostingonansible/
+        dest: /var/www/html
+        owner: root
+        group: root
+        mode: '0777'
